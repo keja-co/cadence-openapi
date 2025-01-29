@@ -5,6 +5,1035 @@ info:
   description: Cadence ERP powers your business with a single platform for all your
     HR, Class Management, Staff Scheduling, Time Tracking & Communication needs.
 paths:
+  /api/compliance/auditlogs/:
+    get:
+      operationId: compliance_auditlogs_list
+      tags:
+      - compliance
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AuditLog'
+          description: ''
+    post:
+      operationId: compliance_auditlogs_create
+      tags:
+      - compliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuditLog'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AuditLog'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AuditLog'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuditLog'
+          description: ''
+  /api/compliance/auditlogs/{id}/:
+    get:
+      operationId: compliance_auditlogs_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this audit log.
+        required: true
+      tags:
+      - compliance
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuditLog'
+          description: ''
+    put:
+      operationId: compliance_auditlogs_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this audit log.
+        required: true
+      tags:
+      - compliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuditLog'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AuditLog'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AuditLog'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuditLog'
+          description: ''
+    patch:
+      operationId: compliance_auditlogs_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this audit log.
+        required: true
+      tags:
+      - compliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedAuditLog'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedAuditLog'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedAuditLog'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuditLog'
+          description: ''
+    delete:
+      operationId: compliance_auditlogs_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this audit log.
+        required: true
+      tags:
+      - compliance
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/compliance/contextkeys/:
+    get:
+      operationId: compliance_contextkeys_list
+      tags:
+      - compliance
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContextKey'
+          description: ''
+    post:
+      operationId: compliance_contextkeys_create
+      tags:
+      - compliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContextKey'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ContextKey'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ContextKey'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContextKey'
+          description: ''
+  /api/compliance/contextkeys/{id}/:
+    get:
+      operationId: compliance_contextkeys_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this context key.
+        required: true
+      tags:
+      - compliance
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContextKey'
+          description: ''
+    put:
+      operationId: compliance_contextkeys_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this context key.
+        required: true
+      tags:
+      - compliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContextKey'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ContextKey'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ContextKey'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContextKey'
+          description: ''
+    patch:
+      operationId: compliance_contextkeys_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this context key.
+        required: true
+      tags:
+      - compliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedContextKey'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedContextKey'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedContextKey'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContextKey'
+          description: ''
+    delete:
+      operationId: compliance_contextkeys_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this context key.
+        required: true
+      tags:
+      - compliance
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/compliance/contexts/:
+    get:
+      operationId: compliance_contexts_list
+      tags:
+      - compliance
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Context'
+          description: ''
+    post:
+      operationId: compliance_contexts_create
+      tags:
+      - compliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Context'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Context'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Context'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Context'
+          description: ''
+  /api/compliance/contexts/{id}/:
+    get:
+      operationId: compliance_contexts_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this context.
+        required: true
+      tags:
+      - compliance
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Context'
+          description: ''
+    put:
+      operationId: compliance_contexts_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this context.
+        required: true
+      tags:
+      - compliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Context'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Context'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Context'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Context'
+          description: ''
+    patch:
+      operationId: compliance_contexts_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this context.
+        required: true
+      tags:
+      - compliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedContext'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedContext'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedContext'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Context'
+          description: ''
+    delete:
+      operationId: compliance_contexts_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this context.
+        required: true
+      tags:
+      - compliance
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/compliance/permissions/:
+    get:
+      operationId: compliance_permissions_list
+      tags:
+      - compliance
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Permission'
+          description: ''
+    post:
+      operationId: compliance_permissions_create
+      tags:
+      - compliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Permission'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Permission'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Permission'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Permission'
+          description: ''
+  /api/compliance/permissions/{id}/:
+    get:
+      operationId: compliance_permissions_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this permission.
+        required: true
+      tags:
+      - compliance
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Permission'
+          description: ''
+    put:
+      operationId: compliance_permissions_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this permission.
+        required: true
+      tags:
+      - compliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Permission'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Permission'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Permission'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Permission'
+          description: ''
+    patch:
+      operationId: compliance_permissions_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this permission.
+        required: true
+      tags:
+      - compliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedPermission'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedPermission'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedPermission'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Permission'
+          description: ''
+    delete:
+      operationId: compliance_permissions_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this permission.
+        required: true
+      tags:
+      - compliance
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/compliance/rolepermissions/:
+    get:
+      operationId: compliance_rolepermissions_list
+      tags:
+      - compliance
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RolePermission'
+          description: ''
+    post:
+      operationId: compliance_rolepermissions_create
+      tags:
+      - compliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RolePermission'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RolePermission'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RolePermission'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RolePermission'
+          description: ''
+  /api/compliance/rolepermissions/{id}/:
+    get:
+      operationId: compliance_rolepermissions_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this role permission.
+        required: true
+      tags:
+      - compliance
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RolePermission'
+          description: ''
+    put:
+      operationId: compliance_rolepermissions_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this role permission.
+        required: true
+      tags:
+      - compliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RolePermission'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RolePermission'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RolePermission'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RolePermission'
+          description: ''
+    patch:
+      operationId: compliance_rolepermissions_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this role permission.
+        required: true
+      tags:
+      - compliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedRolePermission'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedRolePermission'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedRolePermission'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RolePermission'
+          description: ''
+    delete:
+      operationId: compliance_rolepermissions_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this role permission.
+        required: true
+      tags:
+      - compliance
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/compliance/roles/:
+    get:
+      operationId: compliance_roles_list
+      tags:
+      - compliance
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Role'
+          description: ''
+    post:
+      operationId: compliance_roles_create
+      tags:
+      - compliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Role'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Role'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Role'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Role'
+          description: ''
+  /api/compliance/roles/{id}/:
+    get:
+      operationId: compliance_roles_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this role.
+        required: true
+      tags:
+      - compliance
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Role'
+          description: ''
+    put:
+      operationId: compliance_roles_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this role.
+        required: true
+      tags:
+      - compliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Role'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Role'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Role'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Role'
+          description: ''
+    patch:
+      operationId: compliance_roles_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this role.
+        required: true
+      tags:
+      - compliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedRole'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedRole'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedRole'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Role'
+          description: ''
+    delete:
+      operationId: compliance_roles_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this role.
+        required: true
+      tags:
+      - compliance
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/compliance/userroleassignments/:
+    get:
+      operationId: compliance_userroleassignments_list
+      tags:
+      - compliance
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserRoleAssignment'
+          description: ''
+    post:
+      operationId: compliance_userroleassignments_create
+      tags:
+      - compliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRoleAssignment'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserRoleAssignment'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserRoleAssignment'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRoleAssignment'
+          description: ''
+  /api/compliance/userroleassignments/{id}/:
+    get:
+      operationId: compliance_userroleassignments_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this user role assignment.
+        required: true
+      tags:
+      - compliance
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRoleAssignment'
+          description: ''
+    put:
+      operationId: compliance_userroleassignments_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this user role assignment.
+        required: true
+      tags:
+      - compliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRoleAssignment'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserRoleAssignment'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserRoleAssignment'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRoleAssignment'
+          description: ''
+    patch:
+      operationId: compliance_userroleassignments_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this user role assignment.
+        required: true
+      tags:
+      - compliance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUserRoleAssignment'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUserRoleAssignment'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUserRoleAssignment'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRoleAssignment'
+          description: ''
+    delete:
+      operationId: compliance_userroleassignments_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this user role assignment.
+        required: true
+      tags:
+      - compliance
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
   /api/hr/employee-qualifications/:
     get:
       operationId: hr_employee_qualifications_list
@@ -1476,6 +2505,20 @@ paths:
           description: ''
 components:
   schemas:
+    ActionTypeEnum:
+      enum:
+      - CREATE
+      - READ
+      - UPDATE
+      - DELETE
+      - PERMISSION_CHECK
+      type: string
+      description: |-
+        * `CREATE` - Create
+        * `READ` - Read
+        * `UPDATE` - Update
+        * `DELETE` - Delete
+        * `PERMISSION_CHECK` - Permission Check
     Address:
       type: object
       properties:
@@ -1508,6 +2551,69 @@ components:
       - country
       - id
       - line_1
+    AuditLog:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        timestamp:
+          type: string
+          format: date-time
+          readOnly: true
+        action_type:
+          $ref: '#/components/schemas/ActionTypeEnum'
+        description:
+          type: string
+        target_object:
+          type: string
+          maxLength: 255
+        before_state: {}
+        after_state: {}
+        user:
+          type: integer
+      required:
+      - action_type
+      - after_state
+      - before_state
+      - description
+      - id
+      - target_object
+      - timestamp
+      - user
+    Context:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        value:
+          type: string
+          maxLength: 255
+        key:
+          type: integer
+      required:
+      - id
+      - key
+      - value
+    ContextKey:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+        app_name:
+          type: string
+          maxLength: 255
+      required:
+      - app_name
+      - id
+      - name
     Country:
       type: object
       properties:
@@ -1683,6 +2789,52 @@ components:
           nullable: true
         country:
           type: integer
+    PatchedAuditLog:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        timestamp:
+          type: string
+          format: date-time
+          readOnly: true
+        action_type:
+          $ref: '#/components/schemas/ActionTypeEnum'
+        description:
+          type: string
+        target_object:
+          type: string
+          maxLength: 255
+        before_state: {}
+        after_state: {}
+        user:
+          type: integer
+    PatchedContext:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        value:
+          type: string
+          maxLength: 255
+        key:
+          type: integer
+    PatchedContextKey:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+        app_name:
+          type: string
+          maxLength: 255
     PatchedCountry:
       type: object
       properties:
@@ -1809,6 +2961,17 @@ components:
           maxLength: 50
         description:
           type: string
+    PatchedPermission:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        description:
+          type: string
     PatchedQualification:
       type: object
       properties:
@@ -1820,6 +2983,38 @@ components:
           maxLength: 100
         description:
           type: string
+    PatchedRole:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+        parent:
+          type: integer
+          nullable: true
+        permissions:
+          type: array
+          items:
+            type: integer
+          readOnly: true
+    PatchedRolePermission:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        role:
+          type: integer
+        permission:
+          type: integer
+        context:
+          type: integer
+          nullable: true
     PatchedState:
       type: object
       properties:
@@ -1897,6 +3092,16 @@ components:
           items:
             type: integer
           description: Specific permissions for this user.
+    PatchedUserRoleAssignment:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          type: integer
+        role:
+          type: integer
     PatchedWorkLocation:
       type: object
       properties:
@@ -1908,6 +3113,20 @@ components:
           maxLength: 100
         address:
           type: integer
+    Permission:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+      required:
+      - id
+      - name
     Qualification:
       type: object
       properties:
@@ -1922,6 +3141,47 @@ components:
       required:
       - id
       - name
+    Role:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+        parent:
+          type: integer
+          nullable: true
+        permissions:
+          type: array
+          items:
+            type: integer
+          readOnly: true
+      required:
+      - id
+      - name
+      - permissions
+    RolePermission:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        role:
+          type: integer
+        permission:
+          type: integer
+        context:
+          type: integer
+          nullable: true
+      required:
+      - context
+      - id
+      - permission
+      - role
     State:
       type: object
       properties:
@@ -2007,6 +3267,20 @@ components:
       - id
       - password
       - username
+    UserRoleAssignment:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          type: integer
+        role:
+          type: integer
+      required:
+      - id
+      - role
+      - user
     WorkLocation:
       type: object
       properties:
