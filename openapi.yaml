@@ -31,12 +31,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/AuditLog'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/AuditLog'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/AuditLog'
         required: true
       security:
       - basicAuth: []
@@ -86,12 +80,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/AuditLog'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/AuditLog'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/AuditLog'
         required: true
       security:
       - basicAuth: []
@@ -117,12 +105,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedAuditLog'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedAuditLog'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedAuditLog'
       security:
@@ -178,12 +160,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/ContextKey'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/ContextKey'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/ContextKey'
         required: true
       security:
       - basicAuth: []
@@ -233,12 +209,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/ContextKey'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/ContextKey'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/ContextKey'
         required: true
       security:
       - basicAuth: []
@@ -264,12 +234,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedContextKey'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedContextKey'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedContextKey'
       security:
@@ -325,12 +289,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Context'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Context'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Context'
         required: true
       security:
       - basicAuth: []
@@ -380,12 +338,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Context'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Context'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Context'
         required: true
       security:
       - basicAuth: []
@@ -411,12 +363,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedContext'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedContext'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedContext'
       security:
@@ -472,12 +418,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Permission'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Permission'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Permission'
         required: true
       security:
       - basicAuth: []
@@ -527,12 +467,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Permission'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Permission'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Permission'
         required: true
       security:
       - basicAuth: []
@@ -558,12 +492,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedPermission'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedPermission'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedPermission'
       security:
@@ -619,12 +547,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/RolePermission'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/RolePermission'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/RolePermission'
         required: true
       security:
       - basicAuth: []
@@ -674,12 +596,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/RolePermission'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/RolePermission'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/RolePermission'
         required: true
       security:
       - basicAuth: []
@@ -705,12 +621,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedRolePermission'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedRolePermission'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedRolePermission'
       security:
@@ -766,12 +676,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Role'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Role'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Role'
         required: true
       security:
       - basicAuth: []
@@ -821,12 +725,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Role'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Role'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Role'
         required: true
       security:
       - basicAuth: []
@@ -852,12 +750,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedRole'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedRole'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedRole'
       security:
@@ -913,12 +805,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UserRoleAssignment'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/UserRoleAssignment'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/UserRoleAssignment'
         required: true
       security:
       - basicAuth: []
@@ -968,12 +854,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UserRoleAssignment'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/UserRoleAssignment'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/UserRoleAssignment'
         required: true
       security:
       - basicAuth: []
@@ -999,12 +879,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedUserRoleAssignment'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedUserRoleAssignment'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedUserRoleAssignment'
       security:
@@ -1060,12 +934,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/EmployeeQualification'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/EmployeeQualification'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/EmployeeQualification'
         required: true
       security:
       - basicAuth: []
@@ -1115,12 +983,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/EmployeeQualification'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/EmployeeQualification'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/EmployeeQualification'
         required: true
       security:
       - basicAuth: []
@@ -1146,12 +1008,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedEmployeeQualification'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedEmployeeQualification'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedEmployeeQualification'
       security:
@@ -1207,12 +1063,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Employee'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Employee'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Employee'
         required: true
       security:
       - basicAuth: []
@@ -1262,12 +1112,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Employee'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Employee'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Employee'
         required: true
       security:
       - basicAuth: []
@@ -1293,12 +1137,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedEmployee'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedEmployee'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedEmployee'
       security:
@@ -1354,12 +1192,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/EmploymentType'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/EmploymentType'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/EmploymentType'
         required: true
       security:
       - basicAuth: []
@@ -1409,12 +1241,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/EmploymentType'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/EmploymentType'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/EmploymentType'
         required: true
       security:
       - basicAuth: []
@@ -1440,12 +1266,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedEmploymentType'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedEmploymentType'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedEmploymentType'
       security:
@@ -1501,12 +1321,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Qualification'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Qualification'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Qualification'
         required: true
       security:
       - basicAuth: []
@@ -1556,12 +1370,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Qualification'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Qualification'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Qualification'
         required: true
       security:
       - basicAuth: []
@@ -1587,12 +1395,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedQualification'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedQualification'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedQualification'
       security:
@@ -1648,12 +1450,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/WorkLocation'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/WorkLocation'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/WorkLocation'
         required: true
       security:
       - basicAuth: []
@@ -1703,12 +1499,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/WorkLocation'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/WorkLocation'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/WorkLocation'
         required: true
       security:
       - basicAuth: []
@@ -1734,12 +1524,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedWorkLocation'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedWorkLocation'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedWorkLocation'
       security:
@@ -1769,6 +1553,18 @@ paths:
       responses:
         '204':
           description: No response body
+  /api/identity/session-status/:
+    get:
+      operationId: identity_session_status_retrieve
+      tags:
+      - identity
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
   /api/identity/users/:
     get:
       operationId: identity_users_list
@@ -1793,12 +1589,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/User'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/User'
         required: true
@@ -1850,12 +1640,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/User'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/User'
         required: true
       security:
       - basicAuth: []
@@ -1881,12 +1665,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedUser'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedUser'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedUser'
       security:
@@ -1942,12 +1720,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Address'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Address'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Address'
         required: true
       security:
       - basicAuth: []
@@ -1997,12 +1769,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Address'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Address'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Address'
         required: true
       security:
       - basicAuth: []
@@ -2028,12 +1794,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedAddress'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedAddress'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedAddress'
       security:
@@ -2089,12 +1849,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Country'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Country'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Country'
         required: true
       security:
       - basicAuth: []
@@ -2144,12 +1898,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Country'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Country'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Country'
         required: true
       security:
       - basicAuth: []
@@ -2175,12 +1923,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedCountry'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedCountry'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedCountry'
       security:
@@ -2236,12 +1978,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/State'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/State'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/State'
         required: true
       security:
       - basicAuth: []
@@ -2291,12 +2027,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/State'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/State'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/State'
         required: true
       security:
       - basicAuth: []
@@ -2322,12 +2052,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedState'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedState'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedState'
       security:
