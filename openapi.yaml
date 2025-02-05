@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Cadence API
-  version: 1.0.0
+  version: 0.0.0
   description: Cadence ERP powers your business with a single platform for all your
     HR, Class Management, Staff Scheduling, Time Tracking & Communication needs.
 paths:
@@ -2543,8 +2543,9 @@ components:
           type: string
           maxLength: 20
         state:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         country:
           type: integer
       required:
@@ -2697,17 +2698,21 @@ components:
         user:
           type: integer
         employee_address:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         state:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         country:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         employment_type:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         work_locations:
           type: array
           items:
@@ -2785,8 +2790,9 @@ components:
           type: string
           maxLength: 20
         state:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         country:
           type: integer
     PatchedAuditLog:
@@ -2914,17 +2920,21 @@ components:
         user:
           type: integer
         employee_address:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         state:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         country:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         employment_type:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         work_locations:
           type: array
           items:
@@ -2995,8 +3005,9 @@ components:
         description:
           type: string
         parent:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         permissions:
           type: array
           items:
@@ -3013,8 +3024,9 @@ components:
         permission:
           type: integer
         context:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
     PatchedState:
       type: object
       properties:
@@ -3040,9 +3052,10 @@ components:
           type: string
           maxLength: 128
         last_login:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         is_superuser:
           type: boolean
           title: Superuser status
@@ -3078,8 +3091,9 @@ components:
           type: string
           format: date-time
         user_sso_id:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           maxLength: 255
         groups:
           type: array
@@ -3153,8 +3167,9 @@ components:
         description:
           type: string
         parent:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         permissions:
           type: array
           items:
@@ -3175,8 +3190,9 @@ components:
         permission:
           type: integer
         context:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
       required:
       - context
       - id
@@ -3211,9 +3227,10 @@ components:
           type: string
           maxLength: 128
         last_login:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         is_superuser:
           type: boolean
           title: Superuser status
@@ -3249,8 +3266,9 @@ components:
           type: string
           format: date-time
         user_sso_id:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           maxLength: 255
         groups:
           type: array
@@ -3304,3 +3322,11 @@ components:
       type: apiKey
       in: cookie
       name: sessionid
+servers:
+- url: http://localhost:7032
+  description: Local Development Server
+- url: https://api.cadence.keja.co
+  description: Production Server
+externalDocs:
+  description: Cadence Documentation
+  url: https://docs.keja.co/
