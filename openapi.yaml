@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: Cadence API
-  version: 1.1.1
+  version: 1.1.2
   description: Cadence ERP powers your business with a single platform for all your
     HR, Class Management, Staff Scheduling, Time Tracking & Communication needs.
 paths:
@@ -2932,7 +2932,7 @@ components:
         status:
           type: string
         user:
-          type: string
+          type: integer
       required:
       - status
     State:
