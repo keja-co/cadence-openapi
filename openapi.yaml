@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: Cadence API
-  version: 1.1.5
+  version: 1.1.7
   description: Cadence ERP powers your business with a single platform for all your
     HR, Class Management, Staff Scheduling, Time Tracking & Communication needs.
 paths:
@@ -2377,7 +2377,9 @@ components:
           format: email
           maxLength: 254
         phone_number:
-          type: string
+          type:
+          - string
+          - 'null'
           maxLength: 128
         postal_address:
           type: string
@@ -2388,20 +2390,28 @@ components:
           type: string
           maxLength: 10
         date_of_birth:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date
         hire_date:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date
         position:
           type: string
           maxLength: 100
         hourly_rate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: decimal
           pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
         salary:
-          type: string
+          type:
+          - string
+          - 'null'
           format: decimal
           pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
         tax_file_number:
@@ -2419,7 +2429,9 @@ components:
         is_active:
           type: boolean
         probation_end_date:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date
         notes:
           type: string
@@ -2451,13 +2463,8 @@ components:
             type: integer
           readOnly: true
       required:
-      - date_of_birth
-      - email
       - first_name
-      - hire_date
       - id
-      - last_name
-      - position
       - qualifications
       - user
     EmployeeQualification:
@@ -2599,7 +2606,9 @@ components:
           format: email
           maxLength: 254
         phone_number:
-          type: string
+          type:
+          - string
+          - 'null'
           maxLength: 128
         postal_address:
           type: string
@@ -2610,20 +2619,28 @@ components:
           type: string
           maxLength: 10
         date_of_birth:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date
         hire_date:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date
         position:
           type: string
           maxLength: 100
         hourly_rate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: decimal
           pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
         salary:
-          type: string
+          type:
+          - string
+          - 'null'
           format: decimal
           pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
         tax_file_number:
@@ -2641,7 +2658,9 @@ components:
         is_active:
           type: boolean
         probation_end_date:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date
         notes:
           type: string
