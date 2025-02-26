@@ -1,16 +1,30 @@
 openapi: 3.1.0
 info:
   title: Cadence API
-  version: 1.1.7
+  version: 1.2.0
   description: Cadence ERP powers your business with a single platform for all your
     HR, Class Management, Staff Scheduling, Time Tracking & Communication needs.
 paths:
   /api/compliance/auditlogs/:
     get:
       operationId: compliance_auditlogs_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - compliance
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -18,9 +32,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/AuditLog'
+                $ref: '#/components/schemas/PaginatedAuditLogList'
           description: ''
     post:
       operationId: compliance_auditlogs_create
@@ -33,6 +45,7 @@ paths:
               $ref: '#/components/schemas/AuditLog'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -55,6 +68,7 @@ paths:
       tags:
       - compliance
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -82,6 +96,7 @@ paths:
               $ref: '#/components/schemas/AuditLog'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -108,6 +123,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchedAuditLog'
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -129,6 +145,7 @@ paths:
       tags:
       - compliance
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -137,9 +154,23 @@ paths:
   /api/compliance/contextkeys/:
     get:
       operationId: compliance_contextkeys_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - compliance
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -147,9 +178,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ContextKey'
+                $ref: '#/components/schemas/PaginatedContextKeyList'
           description: ''
     post:
       operationId: compliance_contextkeys_create
@@ -162,6 +191,7 @@ paths:
               $ref: '#/components/schemas/ContextKey'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -184,6 +214,7 @@ paths:
       tags:
       - compliance
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -211,6 +242,7 @@ paths:
               $ref: '#/components/schemas/ContextKey'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -237,6 +269,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchedContextKey'
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -258,6 +291,7 @@ paths:
       tags:
       - compliance
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -266,9 +300,23 @@ paths:
   /api/compliance/contexts/:
     get:
       operationId: compliance_contexts_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - compliance
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -276,9 +324,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Context'
+                $ref: '#/components/schemas/PaginatedContextList'
           description: ''
     post:
       operationId: compliance_contexts_create
@@ -291,6 +337,7 @@ paths:
               $ref: '#/components/schemas/Context'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -313,6 +360,7 @@ paths:
       tags:
       - compliance
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -340,6 +388,7 @@ paths:
               $ref: '#/components/schemas/Context'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -366,6 +415,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchedContext'
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -387,6 +437,7 @@ paths:
       tags:
       - compliance
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -395,9 +446,23 @@ paths:
   /api/compliance/permissions/:
     get:
       operationId: compliance_permissions_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - compliance
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -405,9 +470,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Permission'
+                $ref: '#/components/schemas/PaginatedPermissionList'
           description: ''
     post:
       operationId: compliance_permissions_create
@@ -420,6 +483,7 @@ paths:
               $ref: '#/components/schemas/Permission'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -442,6 +506,7 @@ paths:
       tags:
       - compliance
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -469,6 +534,7 @@ paths:
               $ref: '#/components/schemas/Permission'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -495,6 +561,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchedPermission'
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -516,6 +583,7 @@ paths:
       tags:
       - compliance
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -524,9 +592,23 @@ paths:
   /api/compliance/rolepermissions/:
     get:
       operationId: compliance_rolepermissions_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - compliance
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -534,9 +616,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/RolePermission'
+                $ref: '#/components/schemas/PaginatedRolePermissionList'
           description: ''
     post:
       operationId: compliance_rolepermissions_create
@@ -549,6 +629,7 @@ paths:
               $ref: '#/components/schemas/RolePermission'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -571,6 +652,7 @@ paths:
       tags:
       - compliance
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -598,6 +680,7 @@ paths:
               $ref: '#/components/schemas/RolePermission'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -624,6 +707,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchedRolePermission'
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -645,6 +729,7 @@ paths:
       tags:
       - compliance
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -653,9 +738,23 @@ paths:
   /api/compliance/roles/:
     get:
       operationId: compliance_roles_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - compliance
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -663,9 +762,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Role'
+                $ref: '#/components/schemas/PaginatedRoleList'
           description: ''
     post:
       operationId: compliance_roles_create
@@ -678,6 +775,7 @@ paths:
               $ref: '#/components/schemas/Role'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -700,6 +798,7 @@ paths:
       tags:
       - compliance
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -727,6 +826,7 @@ paths:
               $ref: '#/components/schemas/Role'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -753,6 +853,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchedRole'
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -774,6 +875,7 @@ paths:
       tags:
       - compliance
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -782,9 +884,23 @@ paths:
   /api/compliance/userroleassignments/:
     get:
       operationId: compliance_userroleassignments_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - compliance
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -792,9 +908,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/UserRoleAssignment'
+                $ref: '#/components/schemas/PaginatedUserRoleAssignmentList'
           description: ''
     post:
       operationId: compliance_userroleassignments_create
@@ -807,6 +921,7 @@ paths:
               $ref: '#/components/schemas/UserRoleAssignment'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -829,6 +944,7 @@ paths:
       tags:
       - compliance
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -856,6 +972,7 @@ paths:
               $ref: '#/components/schemas/UserRoleAssignment'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -882,6 +999,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchedUserRoleAssignment'
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -903,6 +1021,7 @@ paths:
       tags:
       - compliance
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -911,9 +1030,23 @@ paths:
   /api/hr/employee-qualifications/:
     get:
       operationId: hr_employee_qualifications_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - hr
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -921,9 +1054,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/EmployeeQualification'
+                $ref: '#/components/schemas/PaginatedEmployeeQualificationList'
           description: ''
     post:
       operationId: hr_employee_qualifications_create
@@ -936,6 +1067,7 @@ paths:
               $ref: '#/components/schemas/EmployeeQualification'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -958,6 +1090,7 @@ paths:
       tags:
       - hr
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -985,6 +1118,7 @@ paths:
               $ref: '#/components/schemas/EmployeeQualification'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1011,6 +1145,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchedEmployeeQualification'
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1032,6 +1167,7 @@ paths:
       tags:
       - hr
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1040,9 +1176,23 @@ paths:
   /api/hr/employees/:
     get:
       operationId: hr_employees_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - hr
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1050,9 +1200,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Employee'
+                $ref: '#/components/schemas/PaginatedEmployeeList'
           description: ''
     post:
       operationId: hr_employees_create
@@ -1065,6 +1213,7 @@ paths:
               $ref: '#/components/schemas/Employee'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1087,6 +1236,7 @@ paths:
       tags:
       - hr
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1114,6 +1264,7 @@ paths:
               $ref: '#/components/schemas/Employee'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1140,6 +1291,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchedEmployee'
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1161,6 +1313,7 @@ paths:
       tags:
       - hr
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1169,9 +1322,23 @@ paths:
   /api/hr/employment-types/:
     get:
       operationId: hr_employment_types_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - hr
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1179,9 +1346,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/EmploymentType'
+                $ref: '#/components/schemas/PaginatedEmploymentTypeList'
           description: ''
     post:
       operationId: hr_employment_types_create
@@ -1194,6 +1359,7 @@ paths:
               $ref: '#/components/schemas/EmploymentType'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1216,6 +1382,7 @@ paths:
       tags:
       - hr
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1243,6 +1410,7 @@ paths:
               $ref: '#/components/schemas/EmploymentType'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1269,6 +1437,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchedEmploymentType'
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1290,6 +1459,7 @@ paths:
       tags:
       - hr
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1298,9 +1468,23 @@ paths:
   /api/hr/qualifications/:
     get:
       operationId: hr_qualifications_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - hr
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1308,9 +1492,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Qualification'
+                $ref: '#/components/schemas/PaginatedQualificationList'
           description: ''
     post:
       operationId: hr_qualifications_create
@@ -1323,6 +1505,7 @@ paths:
               $ref: '#/components/schemas/Qualification'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1345,6 +1528,7 @@ paths:
       tags:
       - hr
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1372,6 +1556,7 @@ paths:
               $ref: '#/components/schemas/Qualification'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1398,6 +1583,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchedQualification'
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1419,6 +1605,7 @@ paths:
       tags:
       - hr
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1427,9 +1614,23 @@ paths:
   /api/hr/work-locations/:
     get:
       operationId: hr_work_locations_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - hr
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1437,9 +1638,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/WorkLocation'
+                $ref: '#/components/schemas/PaginatedWorkLocationList'
           description: ''
     post:
       operationId: hr_work_locations_create
@@ -1452,6 +1651,7 @@ paths:
               $ref: '#/components/schemas/WorkLocation'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1474,6 +1674,7 @@ paths:
       tags:
       - hr
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1501,6 +1702,7 @@ paths:
               $ref: '#/components/schemas/WorkLocation'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1527,6 +1729,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchedWorkLocation'
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1548,6 +1751,7 @@ paths:
       tags:
       - hr
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1559,6 +1763,7 @@ paths:
       tags:
       - identity
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       - {}
@@ -1572,9 +1777,23 @@ paths:
   /api/identity/users/:
     get:
       operationId: identity_users_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - identity
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1582,9 +1801,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/PaginatedUserList'
           description: ''
     post:
       operationId: identity_users_create
@@ -1597,6 +1814,7 @@ paths:
               $ref: '#/components/schemas/User'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1619,6 +1837,7 @@ paths:
       tags:
       - identity
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1646,6 +1865,7 @@ paths:
               $ref: '#/components/schemas/User'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1672,6 +1892,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchedUser'
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1693,6 +1914,7 @@ paths:
       tags:
       - identity
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1701,9 +1923,23 @@ paths:
   /api/location/addresses/:
     get:
       operationId: location_addresses_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - location
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1711,9 +1947,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Address'
+                $ref: '#/components/schemas/PaginatedAddressList'
           description: ''
     post:
       operationId: location_addresses_create
@@ -1726,6 +1960,7 @@ paths:
               $ref: '#/components/schemas/Address'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1748,6 +1983,7 @@ paths:
       tags:
       - location
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1775,6 +2011,7 @@ paths:
               $ref: '#/components/schemas/Address'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1801,6 +2038,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchedAddress'
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1822,6 +2060,7 @@ paths:
       tags:
       - location
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1830,9 +2069,23 @@ paths:
   /api/location/countries/:
     get:
       operationId: location_countries_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - location
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1840,9 +2093,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Country'
+                $ref: '#/components/schemas/PaginatedCountryList'
           description: ''
     post:
       operationId: location_countries_create
@@ -1855,6 +2106,7 @@ paths:
               $ref: '#/components/schemas/Country'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1877,6 +2129,7 @@ paths:
       tags:
       - location
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1904,6 +2157,7 @@ paths:
               $ref: '#/components/schemas/Country'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1930,6 +2184,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchedCountry'
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1951,6 +2206,7 @@ paths:
       tags:
       - location
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1959,9 +2215,23 @@ paths:
   /api/location/states/:
     get:
       operationId: location_states_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - location
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -1969,9 +2239,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/State'
+                $ref: '#/components/schemas/PaginatedStateList'
           description: ''
     post:
       operationId: location_states_create
@@ -1984,6 +2252,7 @@ paths:
               $ref: '#/components/schemas/State'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -2006,6 +2275,7 @@ paths:
       tags:
       - location
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -2033,6 +2303,7 @@ paths:
               $ref: '#/components/schemas/State'
         required: true
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -2059,6 +2330,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchedState'
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -2080,6 +2352,7 @@ paths:
       tags:
       - location
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       responses:
@@ -2208,6 +2481,7 @@ paths:
       tags:
       - schema
       security:
+      - CadenceOIDC: []
       - basicAuth: []
       - cookieAuth: []
       - {}
@@ -2501,6 +2775,374 @@ components:
       required:
       - id
       - name
+    PaginatedAddressList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Address'
+    PaginatedAuditLogList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuditLog'
+    PaginatedContextKeyList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContextKey'
+    PaginatedContextList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Context'
+    PaginatedCountryList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
+    PaginatedEmployeeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Employee'
+    PaginatedEmployeeQualificationList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/EmployeeQualification'
+    PaginatedEmploymentTypeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/EmploymentType'
+    PaginatedPermissionList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+    PaginatedQualificationList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Qualification'
+    PaginatedRoleList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+    PaginatedRolePermissionList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/RolePermission'
+    PaginatedStateList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/State'
+    PaginatedUserList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+    PaginatedUserRoleAssignmentList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRoleAssignment'
+    PaginatedWorkLocationList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkLocation'
     PatchedAddress:
       type: object
       properties:
@@ -3071,6 +3713,11 @@ components:
       - id
       - name
   securitySchemes:
+    CadenceOIDC:
+      type: http
+      name: Authorization
+      in: header
+      scheme: bearer
     basicAuth:
       type: http
       scheme: basic
