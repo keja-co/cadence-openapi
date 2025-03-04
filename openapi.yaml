@@ -5,9 +5,24 @@ info:
   description: Cadence ERP powers your business with a single platform for all your
     HR, Class Management, Staff Scheduling, Time Tracking & Communication needs.
 paths:
+  /:
+    get:
+      operationId: root_retrieve
+      security:
+      - CadenceOIDC: []
+      - basicAuth: []
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerMeta'
+          description: ''
   /api/compliance/auditlogs/:
     get:
-      operationId: compliance_auditlogs_list
+      operationId: api_compliance_auditlogs_list
       parameters:
       - name: page
         required: false
@@ -22,7 +37,7 @@ paths:
         schema:
           type: integer
       tags:
-      - compliance
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -35,9 +50,9 @@ paths:
                 $ref: '#/components/schemas/PaginatedAuditLogList'
           description: ''
     post:
-      operationId: compliance_auditlogs_create
+      operationId: api_compliance_auditlogs_create
       tags:
-      - compliance
+      - api
       requestBody:
         content:
           application/json:
@@ -57,7 +72,7 @@ paths:
           description: ''
   /api/compliance/auditlogs/{id}/:
     get:
-      operationId: compliance_auditlogs_retrieve
+      operationId: api_compliance_auditlogs_retrieve
       parameters:
       - in: path
         name: id
@@ -66,7 +81,7 @@ paths:
         description: A unique integer value identifying this audit log.
         required: true
       tags:
-      - compliance
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -79,7 +94,7 @@ paths:
                 $ref: '#/components/schemas/AuditLog'
           description: ''
     put:
-      operationId: compliance_auditlogs_update
+      operationId: api_compliance_auditlogs_update
       parameters:
       - in: path
         name: id
@@ -88,7 +103,7 @@ paths:
         description: A unique integer value identifying this audit log.
         required: true
       tags:
-      - compliance
+      - api
       requestBody:
         content:
           application/json:
@@ -107,7 +122,7 @@ paths:
                 $ref: '#/components/schemas/AuditLog'
           description: ''
     patch:
-      operationId: compliance_auditlogs_partial_update
+      operationId: api_compliance_auditlogs_partial_update
       parameters:
       - in: path
         name: id
@@ -116,7 +131,7 @@ paths:
         description: A unique integer value identifying this audit log.
         required: true
       tags:
-      - compliance
+      - api
       requestBody:
         content:
           application/json:
@@ -134,7 +149,7 @@ paths:
                 $ref: '#/components/schemas/AuditLog'
           description: ''
     delete:
-      operationId: compliance_auditlogs_destroy
+      operationId: api_compliance_auditlogs_destroy
       parameters:
       - in: path
         name: id
@@ -143,7 +158,7 @@ paths:
         description: A unique integer value identifying this audit log.
         required: true
       tags:
-      - compliance
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -153,7 +168,7 @@ paths:
           description: No response body
   /api/compliance/contextkeys/:
     get:
-      operationId: compliance_contextkeys_list
+      operationId: api_compliance_contextkeys_list
       parameters:
       - name: page
         required: false
@@ -168,7 +183,7 @@ paths:
         schema:
           type: integer
       tags:
-      - compliance
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -181,9 +196,9 @@ paths:
                 $ref: '#/components/schemas/PaginatedContextKeyList'
           description: ''
     post:
-      operationId: compliance_contextkeys_create
+      operationId: api_compliance_contextkeys_create
       tags:
-      - compliance
+      - api
       requestBody:
         content:
           application/json:
@@ -203,7 +218,7 @@ paths:
           description: ''
   /api/compliance/contextkeys/{id}/:
     get:
-      operationId: compliance_contextkeys_retrieve
+      operationId: api_compliance_contextkeys_retrieve
       parameters:
       - in: path
         name: id
@@ -212,7 +227,7 @@ paths:
         description: A unique integer value identifying this context key.
         required: true
       tags:
-      - compliance
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -225,7 +240,7 @@ paths:
                 $ref: '#/components/schemas/ContextKey'
           description: ''
     put:
-      operationId: compliance_contextkeys_update
+      operationId: api_compliance_contextkeys_update
       parameters:
       - in: path
         name: id
@@ -234,7 +249,7 @@ paths:
         description: A unique integer value identifying this context key.
         required: true
       tags:
-      - compliance
+      - api
       requestBody:
         content:
           application/json:
@@ -253,7 +268,7 @@ paths:
                 $ref: '#/components/schemas/ContextKey'
           description: ''
     patch:
-      operationId: compliance_contextkeys_partial_update
+      operationId: api_compliance_contextkeys_partial_update
       parameters:
       - in: path
         name: id
@@ -262,7 +277,7 @@ paths:
         description: A unique integer value identifying this context key.
         required: true
       tags:
-      - compliance
+      - api
       requestBody:
         content:
           application/json:
@@ -280,7 +295,7 @@ paths:
                 $ref: '#/components/schemas/ContextKey'
           description: ''
     delete:
-      operationId: compliance_contextkeys_destroy
+      operationId: api_compliance_contextkeys_destroy
       parameters:
       - in: path
         name: id
@@ -289,7 +304,7 @@ paths:
         description: A unique integer value identifying this context key.
         required: true
       tags:
-      - compliance
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -299,7 +314,7 @@ paths:
           description: No response body
   /api/compliance/contexts/:
     get:
-      operationId: compliance_contexts_list
+      operationId: api_compliance_contexts_list
       parameters:
       - name: page
         required: false
@@ -314,7 +329,7 @@ paths:
         schema:
           type: integer
       tags:
-      - compliance
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -327,9 +342,9 @@ paths:
                 $ref: '#/components/schemas/PaginatedContextList'
           description: ''
     post:
-      operationId: compliance_contexts_create
+      operationId: api_compliance_contexts_create
       tags:
-      - compliance
+      - api
       requestBody:
         content:
           application/json:
@@ -349,7 +364,7 @@ paths:
           description: ''
   /api/compliance/contexts/{id}/:
     get:
-      operationId: compliance_contexts_retrieve
+      operationId: api_compliance_contexts_retrieve
       parameters:
       - in: path
         name: id
@@ -358,7 +373,7 @@ paths:
         description: A unique integer value identifying this context.
         required: true
       tags:
-      - compliance
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -371,7 +386,7 @@ paths:
                 $ref: '#/components/schemas/Context'
           description: ''
     put:
-      operationId: compliance_contexts_update
+      operationId: api_compliance_contexts_update
       parameters:
       - in: path
         name: id
@@ -380,7 +395,7 @@ paths:
         description: A unique integer value identifying this context.
         required: true
       tags:
-      - compliance
+      - api
       requestBody:
         content:
           application/json:
@@ -399,7 +414,7 @@ paths:
                 $ref: '#/components/schemas/Context'
           description: ''
     patch:
-      operationId: compliance_contexts_partial_update
+      operationId: api_compliance_contexts_partial_update
       parameters:
       - in: path
         name: id
@@ -408,7 +423,7 @@ paths:
         description: A unique integer value identifying this context.
         required: true
       tags:
-      - compliance
+      - api
       requestBody:
         content:
           application/json:
@@ -426,7 +441,7 @@ paths:
                 $ref: '#/components/schemas/Context'
           description: ''
     delete:
-      operationId: compliance_contexts_destroy
+      operationId: api_compliance_contexts_destroy
       parameters:
       - in: path
         name: id
@@ -435,7 +450,7 @@ paths:
         description: A unique integer value identifying this context.
         required: true
       tags:
-      - compliance
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -445,7 +460,7 @@ paths:
           description: No response body
   /api/compliance/permissions/:
     get:
-      operationId: compliance_permissions_list
+      operationId: api_compliance_permissions_list
       parameters:
       - name: page
         required: false
@@ -460,7 +475,7 @@ paths:
         schema:
           type: integer
       tags:
-      - compliance
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -473,9 +488,9 @@ paths:
                 $ref: '#/components/schemas/PaginatedPermissionList'
           description: ''
     post:
-      operationId: compliance_permissions_create
+      operationId: api_compliance_permissions_create
       tags:
-      - compliance
+      - api
       requestBody:
         content:
           application/json:
@@ -495,7 +510,7 @@ paths:
           description: ''
   /api/compliance/permissions/{id}/:
     get:
-      operationId: compliance_permissions_retrieve
+      operationId: api_compliance_permissions_retrieve
       parameters:
       - in: path
         name: id
@@ -504,7 +519,7 @@ paths:
         description: A unique integer value identifying this permission.
         required: true
       tags:
-      - compliance
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -517,7 +532,7 @@ paths:
                 $ref: '#/components/schemas/Permission'
           description: ''
     put:
-      operationId: compliance_permissions_update
+      operationId: api_compliance_permissions_update
       parameters:
       - in: path
         name: id
@@ -526,7 +541,7 @@ paths:
         description: A unique integer value identifying this permission.
         required: true
       tags:
-      - compliance
+      - api
       requestBody:
         content:
           application/json:
@@ -545,7 +560,7 @@ paths:
                 $ref: '#/components/schemas/Permission'
           description: ''
     patch:
-      operationId: compliance_permissions_partial_update
+      operationId: api_compliance_permissions_partial_update
       parameters:
       - in: path
         name: id
@@ -554,7 +569,7 @@ paths:
         description: A unique integer value identifying this permission.
         required: true
       tags:
-      - compliance
+      - api
       requestBody:
         content:
           application/json:
@@ -572,7 +587,7 @@ paths:
                 $ref: '#/components/schemas/Permission'
           description: ''
     delete:
-      operationId: compliance_permissions_destroy
+      operationId: api_compliance_permissions_destroy
       parameters:
       - in: path
         name: id
@@ -581,7 +596,7 @@ paths:
         description: A unique integer value identifying this permission.
         required: true
       tags:
-      - compliance
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -591,7 +606,7 @@ paths:
           description: No response body
   /api/compliance/rolepermissions/:
     get:
-      operationId: compliance_rolepermissions_list
+      operationId: api_compliance_rolepermissions_list
       parameters:
       - name: page
         required: false
@@ -606,7 +621,7 @@ paths:
         schema:
           type: integer
       tags:
-      - compliance
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -619,9 +634,9 @@ paths:
                 $ref: '#/components/schemas/PaginatedRolePermissionList'
           description: ''
     post:
-      operationId: compliance_rolepermissions_create
+      operationId: api_compliance_rolepermissions_create
       tags:
-      - compliance
+      - api
       requestBody:
         content:
           application/json:
@@ -641,7 +656,7 @@ paths:
           description: ''
   /api/compliance/rolepermissions/{id}/:
     get:
-      operationId: compliance_rolepermissions_retrieve
+      operationId: api_compliance_rolepermissions_retrieve
       parameters:
       - in: path
         name: id
@@ -650,7 +665,7 @@ paths:
         description: A unique integer value identifying this role permission.
         required: true
       tags:
-      - compliance
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -663,7 +678,7 @@ paths:
                 $ref: '#/components/schemas/RolePermission'
           description: ''
     put:
-      operationId: compliance_rolepermissions_update
+      operationId: api_compliance_rolepermissions_update
       parameters:
       - in: path
         name: id
@@ -672,7 +687,7 @@ paths:
         description: A unique integer value identifying this role permission.
         required: true
       tags:
-      - compliance
+      - api
       requestBody:
         content:
           application/json:
@@ -691,7 +706,7 @@ paths:
                 $ref: '#/components/schemas/RolePermission'
           description: ''
     patch:
-      operationId: compliance_rolepermissions_partial_update
+      operationId: api_compliance_rolepermissions_partial_update
       parameters:
       - in: path
         name: id
@@ -700,7 +715,7 @@ paths:
         description: A unique integer value identifying this role permission.
         required: true
       tags:
-      - compliance
+      - api
       requestBody:
         content:
           application/json:
@@ -718,7 +733,7 @@ paths:
                 $ref: '#/components/schemas/RolePermission'
           description: ''
     delete:
-      operationId: compliance_rolepermissions_destroy
+      operationId: api_compliance_rolepermissions_destroy
       parameters:
       - in: path
         name: id
@@ -727,7 +742,7 @@ paths:
         description: A unique integer value identifying this role permission.
         required: true
       tags:
-      - compliance
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -737,7 +752,7 @@ paths:
           description: No response body
   /api/compliance/roles/:
     get:
-      operationId: compliance_roles_list
+      operationId: api_compliance_roles_list
       parameters:
       - name: page
         required: false
@@ -752,7 +767,7 @@ paths:
         schema:
           type: integer
       tags:
-      - compliance
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -765,9 +780,9 @@ paths:
                 $ref: '#/components/schemas/PaginatedRoleList'
           description: ''
     post:
-      operationId: compliance_roles_create
+      operationId: api_compliance_roles_create
       tags:
-      - compliance
+      - api
       requestBody:
         content:
           application/json:
@@ -787,7 +802,7 @@ paths:
           description: ''
   /api/compliance/roles/{id}/:
     get:
-      operationId: compliance_roles_retrieve
+      operationId: api_compliance_roles_retrieve
       parameters:
       - in: path
         name: id
@@ -796,7 +811,7 @@ paths:
         description: A unique integer value identifying this role.
         required: true
       tags:
-      - compliance
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -809,7 +824,7 @@ paths:
                 $ref: '#/components/schemas/Role'
           description: ''
     put:
-      operationId: compliance_roles_update
+      operationId: api_compliance_roles_update
       parameters:
       - in: path
         name: id
@@ -818,7 +833,7 @@ paths:
         description: A unique integer value identifying this role.
         required: true
       tags:
-      - compliance
+      - api
       requestBody:
         content:
           application/json:
@@ -837,7 +852,7 @@ paths:
                 $ref: '#/components/schemas/Role'
           description: ''
     patch:
-      operationId: compliance_roles_partial_update
+      operationId: api_compliance_roles_partial_update
       parameters:
       - in: path
         name: id
@@ -846,7 +861,7 @@ paths:
         description: A unique integer value identifying this role.
         required: true
       tags:
-      - compliance
+      - api
       requestBody:
         content:
           application/json:
@@ -864,7 +879,7 @@ paths:
                 $ref: '#/components/schemas/Role'
           description: ''
     delete:
-      operationId: compliance_roles_destroy
+      operationId: api_compliance_roles_destroy
       parameters:
       - in: path
         name: id
@@ -873,7 +888,7 @@ paths:
         description: A unique integer value identifying this role.
         required: true
       tags:
-      - compliance
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -883,7 +898,7 @@ paths:
           description: No response body
   /api/compliance/userroleassignments/:
     get:
-      operationId: compliance_userroleassignments_list
+      operationId: api_compliance_userroleassignments_list
       parameters:
       - name: page
         required: false
@@ -898,7 +913,7 @@ paths:
         schema:
           type: integer
       tags:
-      - compliance
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -911,9 +926,9 @@ paths:
                 $ref: '#/components/schemas/PaginatedUserRoleAssignmentList'
           description: ''
     post:
-      operationId: compliance_userroleassignments_create
+      operationId: api_compliance_userroleassignments_create
       tags:
-      - compliance
+      - api
       requestBody:
         content:
           application/json:
@@ -933,7 +948,7 @@ paths:
           description: ''
   /api/compliance/userroleassignments/{id}/:
     get:
-      operationId: compliance_userroleassignments_retrieve
+      operationId: api_compliance_userroleassignments_retrieve
       parameters:
       - in: path
         name: id
@@ -942,7 +957,7 @@ paths:
         description: A unique integer value identifying this user role assignment.
         required: true
       tags:
-      - compliance
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -955,7 +970,7 @@ paths:
                 $ref: '#/components/schemas/UserRoleAssignment'
           description: ''
     put:
-      operationId: compliance_userroleassignments_update
+      operationId: api_compliance_userroleassignments_update
       parameters:
       - in: path
         name: id
@@ -964,7 +979,7 @@ paths:
         description: A unique integer value identifying this user role assignment.
         required: true
       tags:
-      - compliance
+      - api
       requestBody:
         content:
           application/json:
@@ -983,7 +998,7 @@ paths:
                 $ref: '#/components/schemas/UserRoleAssignment'
           description: ''
     patch:
-      operationId: compliance_userroleassignments_partial_update
+      operationId: api_compliance_userroleassignments_partial_update
       parameters:
       - in: path
         name: id
@@ -992,7 +1007,7 @@ paths:
         description: A unique integer value identifying this user role assignment.
         required: true
       tags:
-      - compliance
+      - api
       requestBody:
         content:
           application/json:
@@ -1010,7 +1025,7 @@ paths:
                 $ref: '#/components/schemas/UserRoleAssignment'
           description: ''
     delete:
-      operationId: compliance_userroleassignments_destroy
+      operationId: api_compliance_userroleassignments_destroy
       parameters:
       - in: path
         name: id
@@ -1019,7 +1034,7 @@ paths:
         description: A unique integer value identifying this user role assignment.
         required: true
       tags:
-      - compliance
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1029,7 +1044,7 @@ paths:
           description: No response body
   /api/hr/employee-qualifications/:
     get:
-      operationId: hr_employee_qualifications_list
+      operationId: api_hr_employee_qualifications_list
       parameters:
       - name: page
         required: false
@@ -1044,7 +1059,7 @@ paths:
         schema:
           type: integer
       tags:
-      - hr
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1057,9 +1072,9 @@ paths:
                 $ref: '#/components/schemas/PaginatedEmployeeQualificationList'
           description: ''
     post:
-      operationId: hr_employee_qualifications_create
+      operationId: api_hr_employee_qualifications_create
       tags:
-      - hr
+      - api
       requestBody:
         content:
           application/json:
@@ -1079,7 +1094,7 @@ paths:
           description: ''
   /api/hr/employee-qualifications/{id}/:
     get:
-      operationId: hr_employee_qualifications_retrieve
+      operationId: api_hr_employee_qualifications_retrieve
       parameters:
       - in: path
         name: id
@@ -1088,7 +1103,7 @@ paths:
         description: A unique integer value identifying this employee qualification.
         required: true
       tags:
-      - hr
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1101,7 +1116,7 @@ paths:
                 $ref: '#/components/schemas/EmployeeQualification'
           description: ''
     put:
-      operationId: hr_employee_qualifications_update
+      operationId: api_hr_employee_qualifications_update
       parameters:
       - in: path
         name: id
@@ -1110,7 +1125,7 @@ paths:
         description: A unique integer value identifying this employee qualification.
         required: true
       tags:
-      - hr
+      - api
       requestBody:
         content:
           application/json:
@@ -1129,7 +1144,7 @@ paths:
                 $ref: '#/components/schemas/EmployeeQualification'
           description: ''
     patch:
-      operationId: hr_employee_qualifications_partial_update
+      operationId: api_hr_employee_qualifications_partial_update
       parameters:
       - in: path
         name: id
@@ -1138,7 +1153,7 @@ paths:
         description: A unique integer value identifying this employee qualification.
         required: true
       tags:
-      - hr
+      - api
       requestBody:
         content:
           application/json:
@@ -1156,7 +1171,7 @@ paths:
                 $ref: '#/components/schemas/EmployeeQualification'
           description: ''
     delete:
-      operationId: hr_employee_qualifications_destroy
+      operationId: api_hr_employee_qualifications_destroy
       parameters:
       - in: path
         name: id
@@ -1165,7 +1180,7 @@ paths:
         description: A unique integer value identifying this employee qualification.
         required: true
       tags:
-      - hr
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1175,7 +1190,7 @@ paths:
           description: No response body
   /api/hr/employees/:
     get:
-      operationId: hr_employees_list
+      operationId: api_hr_employees_list
       parameters:
       - name: page
         required: false
@@ -1190,7 +1205,7 @@ paths:
         schema:
           type: integer
       tags:
-      - hr
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1203,9 +1218,9 @@ paths:
                 $ref: '#/components/schemas/PaginatedEmployeeList'
           description: ''
     post:
-      operationId: hr_employees_create
+      operationId: api_hr_employees_create
       tags:
-      - hr
+      - api
       requestBody:
         content:
           application/json:
@@ -1225,7 +1240,7 @@ paths:
           description: ''
   /api/hr/employees/{id}/:
     get:
-      operationId: hr_employees_retrieve
+      operationId: api_hr_employees_retrieve
       parameters:
       - in: path
         name: id
@@ -1234,7 +1249,7 @@ paths:
         description: A unique integer value identifying this Employee.
         required: true
       tags:
-      - hr
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1247,7 +1262,7 @@ paths:
                 $ref: '#/components/schemas/Employee'
           description: ''
     put:
-      operationId: hr_employees_update
+      operationId: api_hr_employees_update
       parameters:
       - in: path
         name: id
@@ -1256,7 +1271,7 @@ paths:
         description: A unique integer value identifying this Employee.
         required: true
       tags:
-      - hr
+      - api
       requestBody:
         content:
           application/json:
@@ -1275,7 +1290,7 @@ paths:
                 $ref: '#/components/schemas/Employee'
           description: ''
     patch:
-      operationId: hr_employees_partial_update
+      operationId: api_hr_employees_partial_update
       parameters:
       - in: path
         name: id
@@ -1284,7 +1299,7 @@ paths:
         description: A unique integer value identifying this Employee.
         required: true
       tags:
-      - hr
+      - api
       requestBody:
         content:
           application/json:
@@ -1302,7 +1317,7 @@ paths:
                 $ref: '#/components/schemas/Employee'
           description: ''
     delete:
-      operationId: hr_employees_destroy
+      operationId: api_hr_employees_destroy
       parameters:
       - in: path
         name: id
@@ -1311,7 +1326,7 @@ paths:
         description: A unique integer value identifying this Employee.
         required: true
       tags:
-      - hr
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1321,7 +1336,7 @@ paths:
           description: No response body
   /api/hr/employment-types/:
     get:
-      operationId: hr_employment_types_list
+      operationId: api_hr_employment_types_list
       parameters:
       - name: page
         required: false
@@ -1336,7 +1351,7 @@ paths:
         schema:
           type: integer
       tags:
-      - hr
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1349,9 +1364,9 @@ paths:
                 $ref: '#/components/schemas/PaginatedEmploymentTypeList'
           description: ''
     post:
-      operationId: hr_employment_types_create
+      operationId: api_hr_employment_types_create
       tags:
-      - hr
+      - api
       requestBody:
         content:
           application/json:
@@ -1371,7 +1386,7 @@ paths:
           description: ''
   /api/hr/employment-types/{id}/:
     get:
-      operationId: hr_employment_types_retrieve
+      operationId: api_hr_employment_types_retrieve
       parameters:
       - in: path
         name: id
@@ -1380,7 +1395,7 @@ paths:
         description: A unique integer value identifying this employment type.
         required: true
       tags:
-      - hr
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1393,7 +1408,7 @@ paths:
                 $ref: '#/components/schemas/EmploymentType'
           description: ''
     put:
-      operationId: hr_employment_types_update
+      operationId: api_hr_employment_types_update
       parameters:
       - in: path
         name: id
@@ -1402,7 +1417,7 @@ paths:
         description: A unique integer value identifying this employment type.
         required: true
       tags:
-      - hr
+      - api
       requestBody:
         content:
           application/json:
@@ -1421,7 +1436,7 @@ paths:
                 $ref: '#/components/schemas/EmploymentType'
           description: ''
     patch:
-      operationId: hr_employment_types_partial_update
+      operationId: api_hr_employment_types_partial_update
       parameters:
       - in: path
         name: id
@@ -1430,7 +1445,7 @@ paths:
         description: A unique integer value identifying this employment type.
         required: true
       tags:
-      - hr
+      - api
       requestBody:
         content:
           application/json:
@@ -1448,7 +1463,7 @@ paths:
                 $ref: '#/components/schemas/EmploymentType'
           description: ''
     delete:
-      operationId: hr_employment_types_destroy
+      operationId: api_hr_employment_types_destroy
       parameters:
       - in: path
         name: id
@@ -1457,7 +1472,7 @@ paths:
         description: A unique integer value identifying this employment type.
         required: true
       tags:
-      - hr
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1467,7 +1482,7 @@ paths:
           description: No response body
   /api/hr/qualifications/:
     get:
-      operationId: hr_qualifications_list
+      operationId: api_hr_qualifications_list
       parameters:
       - name: page
         required: false
@@ -1482,7 +1497,7 @@ paths:
         schema:
           type: integer
       tags:
-      - hr
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1495,9 +1510,9 @@ paths:
                 $ref: '#/components/schemas/PaginatedQualificationList'
           description: ''
     post:
-      operationId: hr_qualifications_create
+      operationId: api_hr_qualifications_create
       tags:
-      - hr
+      - api
       requestBody:
         content:
           application/json:
@@ -1517,7 +1532,7 @@ paths:
           description: ''
   /api/hr/qualifications/{id}/:
     get:
-      operationId: hr_qualifications_retrieve
+      operationId: api_hr_qualifications_retrieve
       parameters:
       - in: path
         name: id
@@ -1526,7 +1541,7 @@ paths:
         description: A unique integer value identifying this qualification.
         required: true
       tags:
-      - hr
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1539,7 +1554,7 @@ paths:
                 $ref: '#/components/schemas/Qualification'
           description: ''
     put:
-      operationId: hr_qualifications_update
+      operationId: api_hr_qualifications_update
       parameters:
       - in: path
         name: id
@@ -1548,7 +1563,7 @@ paths:
         description: A unique integer value identifying this qualification.
         required: true
       tags:
-      - hr
+      - api
       requestBody:
         content:
           application/json:
@@ -1567,7 +1582,7 @@ paths:
                 $ref: '#/components/schemas/Qualification'
           description: ''
     patch:
-      operationId: hr_qualifications_partial_update
+      operationId: api_hr_qualifications_partial_update
       parameters:
       - in: path
         name: id
@@ -1576,7 +1591,7 @@ paths:
         description: A unique integer value identifying this qualification.
         required: true
       tags:
-      - hr
+      - api
       requestBody:
         content:
           application/json:
@@ -1594,7 +1609,7 @@ paths:
                 $ref: '#/components/schemas/Qualification'
           description: ''
     delete:
-      operationId: hr_qualifications_destroy
+      operationId: api_hr_qualifications_destroy
       parameters:
       - in: path
         name: id
@@ -1603,7 +1618,7 @@ paths:
         description: A unique integer value identifying this qualification.
         required: true
       tags:
-      - hr
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1613,7 +1628,7 @@ paths:
           description: No response body
   /api/hr/work-locations/:
     get:
-      operationId: hr_work_locations_list
+      operationId: api_hr_work_locations_list
       parameters:
       - name: page
         required: false
@@ -1628,7 +1643,7 @@ paths:
         schema:
           type: integer
       tags:
-      - hr
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1641,9 +1656,9 @@ paths:
                 $ref: '#/components/schemas/PaginatedWorkLocationList'
           description: ''
     post:
-      operationId: hr_work_locations_create
+      operationId: api_hr_work_locations_create
       tags:
-      - hr
+      - api
       requestBody:
         content:
           application/json:
@@ -1663,7 +1678,7 @@ paths:
           description: ''
   /api/hr/work-locations/{id}/:
     get:
-      operationId: hr_work_locations_retrieve
+      operationId: api_hr_work_locations_retrieve
       parameters:
       - in: path
         name: id
@@ -1672,7 +1687,7 @@ paths:
         description: A unique integer value identifying this work location.
         required: true
       tags:
-      - hr
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1685,7 +1700,7 @@ paths:
                 $ref: '#/components/schemas/WorkLocation'
           description: ''
     put:
-      operationId: hr_work_locations_update
+      operationId: api_hr_work_locations_update
       parameters:
       - in: path
         name: id
@@ -1694,7 +1709,7 @@ paths:
         description: A unique integer value identifying this work location.
         required: true
       tags:
-      - hr
+      - api
       requestBody:
         content:
           application/json:
@@ -1713,7 +1728,7 @@ paths:
                 $ref: '#/components/schemas/WorkLocation'
           description: ''
     patch:
-      operationId: hr_work_locations_partial_update
+      operationId: api_hr_work_locations_partial_update
       parameters:
       - in: path
         name: id
@@ -1722,7 +1737,7 @@ paths:
         description: A unique integer value identifying this work location.
         required: true
       tags:
-      - hr
+      - api
       requestBody:
         content:
           application/json:
@@ -1740,7 +1755,7 @@ paths:
                 $ref: '#/components/schemas/WorkLocation'
           description: ''
     delete:
-      operationId: hr_work_locations_destroy
+      operationId: api_hr_work_locations_destroy
       parameters:
       - in: path
         name: id
@@ -1749,7 +1764,7 @@ paths:
         description: A unique integer value identifying this work location.
         required: true
       tags:
-      - hr
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1759,9 +1774,9 @@ paths:
           description: No response body
   /api/identity/session-status/:
     get:
-      operationId: identity_session_status_retrieve
+      operationId: api_identity_session_status_retrieve
       tags:
-      - identity
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1776,7 +1791,7 @@ paths:
           description: ''
   /api/identity/users/:
     get:
-      operationId: identity_users_list
+      operationId: api_identity_users_list
       parameters:
       - name: page
         required: false
@@ -1791,7 +1806,7 @@ paths:
         schema:
           type: integer
       tags:
-      - identity
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1804,9 +1819,9 @@ paths:
                 $ref: '#/components/schemas/PaginatedUserList'
           description: ''
     post:
-      operationId: identity_users_create
+      operationId: api_identity_users_create
       tags:
-      - identity
+      - api
       requestBody:
         content:
           application/json:
@@ -1826,7 +1841,7 @@ paths:
           description: ''
   /api/identity/users/{id}/:
     get:
-      operationId: identity_users_retrieve
+      operationId: api_identity_users_retrieve
       parameters:
       - in: path
         name: id
@@ -1835,7 +1850,7 @@ paths:
         description: A unique integer value identifying this user.
         required: true
       tags:
-      - identity
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1848,7 +1863,7 @@ paths:
                 $ref: '#/components/schemas/User'
           description: ''
     put:
-      operationId: identity_users_update
+      operationId: api_identity_users_update
       parameters:
       - in: path
         name: id
@@ -1857,7 +1872,7 @@ paths:
         description: A unique integer value identifying this user.
         required: true
       tags:
-      - identity
+      - api
       requestBody:
         content:
           application/json:
@@ -1876,7 +1891,7 @@ paths:
                 $ref: '#/components/schemas/User'
           description: ''
     patch:
-      operationId: identity_users_partial_update
+      operationId: api_identity_users_partial_update
       parameters:
       - in: path
         name: id
@@ -1885,7 +1900,7 @@ paths:
         description: A unique integer value identifying this user.
         required: true
       tags:
-      - identity
+      - api
       requestBody:
         content:
           application/json:
@@ -1903,7 +1918,7 @@ paths:
                 $ref: '#/components/schemas/User'
           description: ''
     delete:
-      operationId: identity_users_destroy
+      operationId: api_identity_users_destroy
       parameters:
       - in: path
         name: id
@@ -1912,7 +1927,7 @@ paths:
         description: A unique integer value identifying this user.
         required: true
       tags:
-      - identity
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1922,7 +1937,7 @@ paths:
           description: No response body
   /api/location/addresses/:
     get:
-      operationId: location_addresses_list
+      operationId: api_location_addresses_list
       parameters:
       - name: page
         required: false
@@ -1937,7 +1952,7 @@ paths:
         schema:
           type: integer
       tags:
-      - location
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1950,9 +1965,9 @@ paths:
                 $ref: '#/components/schemas/PaginatedAddressList'
           description: ''
     post:
-      operationId: location_addresses_create
+      operationId: api_location_addresses_create
       tags:
-      - location
+      - api
       requestBody:
         content:
           application/json:
@@ -1972,7 +1987,7 @@ paths:
           description: ''
   /api/location/addresses/{id}/:
     get:
-      operationId: location_addresses_retrieve
+      operationId: api_location_addresses_retrieve
       parameters:
       - in: path
         name: id
@@ -1981,7 +1996,7 @@ paths:
         description: A unique integer value identifying this address.
         required: true
       tags:
-      - location
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -1994,7 +2009,7 @@ paths:
                 $ref: '#/components/schemas/Address'
           description: ''
     put:
-      operationId: location_addresses_update
+      operationId: api_location_addresses_update
       parameters:
       - in: path
         name: id
@@ -2003,7 +2018,7 @@ paths:
         description: A unique integer value identifying this address.
         required: true
       tags:
-      - location
+      - api
       requestBody:
         content:
           application/json:
@@ -2022,7 +2037,7 @@ paths:
                 $ref: '#/components/schemas/Address'
           description: ''
     patch:
-      operationId: location_addresses_partial_update
+      operationId: api_location_addresses_partial_update
       parameters:
       - in: path
         name: id
@@ -2031,7 +2046,7 @@ paths:
         description: A unique integer value identifying this address.
         required: true
       tags:
-      - location
+      - api
       requestBody:
         content:
           application/json:
@@ -2049,7 +2064,7 @@ paths:
                 $ref: '#/components/schemas/Address'
           description: ''
     delete:
-      operationId: location_addresses_destroy
+      operationId: api_location_addresses_destroy
       parameters:
       - in: path
         name: id
@@ -2058,7 +2073,7 @@ paths:
         description: A unique integer value identifying this address.
         required: true
       tags:
-      - location
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -2068,7 +2083,7 @@ paths:
           description: No response body
   /api/location/countries/:
     get:
-      operationId: location_countries_list
+      operationId: api_location_countries_list
       parameters:
       - name: page
         required: false
@@ -2083,7 +2098,7 @@ paths:
         schema:
           type: integer
       tags:
-      - location
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -2096,9 +2111,9 @@ paths:
                 $ref: '#/components/schemas/PaginatedCountryList'
           description: ''
     post:
-      operationId: location_countries_create
+      operationId: api_location_countries_create
       tags:
-      - location
+      - api
       requestBody:
         content:
           application/json:
@@ -2118,7 +2133,7 @@ paths:
           description: ''
   /api/location/countries/{id}/:
     get:
-      operationId: location_countries_retrieve
+      operationId: api_location_countries_retrieve
       parameters:
       - in: path
         name: id
@@ -2127,7 +2142,7 @@ paths:
         description: A unique integer value identifying this country.
         required: true
       tags:
-      - location
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -2140,7 +2155,7 @@ paths:
                 $ref: '#/components/schemas/Country'
           description: ''
     put:
-      operationId: location_countries_update
+      operationId: api_location_countries_update
       parameters:
       - in: path
         name: id
@@ -2149,7 +2164,7 @@ paths:
         description: A unique integer value identifying this country.
         required: true
       tags:
-      - location
+      - api
       requestBody:
         content:
           application/json:
@@ -2168,7 +2183,7 @@ paths:
                 $ref: '#/components/schemas/Country'
           description: ''
     patch:
-      operationId: location_countries_partial_update
+      operationId: api_location_countries_partial_update
       parameters:
       - in: path
         name: id
@@ -2177,7 +2192,7 @@ paths:
         description: A unique integer value identifying this country.
         required: true
       tags:
-      - location
+      - api
       requestBody:
         content:
           application/json:
@@ -2195,7 +2210,7 @@ paths:
                 $ref: '#/components/schemas/Country'
           description: ''
     delete:
-      operationId: location_countries_destroy
+      operationId: api_location_countries_destroy
       parameters:
       - in: path
         name: id
@@ -2204,7 +2219,7 @@ paths:
         description: A unique integer value identifying this country.
         required: true
       tags:
-      - location
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -2214,7 +2229,7 @@ paths:
           description: No response body
   /api/location/states/:
     get:
-      operationId: location_states_list
+      operationId: api_location_states_list
       parameters:
       - name: page
         required: false
@@ -2229,7 +2244,7 @@ paths:
         schema:
           type: integer
       tags:
-      - location
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -2242,9 +2257,9 @@ paths:
                 $ref: '#/components/schemas/PaginatedStateList'
           description: ''
     post:
-      operationId: location_states_create
+      operationId: api_location_states_create
       tags:
-      - location
+      - api
       requestBody:
         content:
           application/json:
@@ -2264,7 +2279,7 @@ paths:
           description: ''
   /api/location/states/{id}/:
     get:
-      operationId: location_states_retrieve
+      operationId: api_location_states_retrieve
       parameters:
       - in: path
         name: id
@@ -2273,7 +2288,7 @@ paths:
         description: A unique integer value identifying this state.
         required: true
       tags:
-      - location
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -2286,7 +2301,7 @@ paths:
                 $ref: '#/components/schemas/State'
           description: ''
     put:
-      operationId: location_states_update
+      operationId: api_location_states_update
       parameters:
       - in: path
         name: id
@@ -2295,7 +2310,7 @@ paths:
         description: A unique integer value identifying this state.
         required: true
       tags:
-      - location
+      - api
       requestBody:
         content:
           application/json:
@@ -2314,7 +2329,7 @@ paths:
                 $ref: '#/components/schemas/State'
           description: ''
     patch:
-      operationId: location_states_partial_update
+      operationId: api_location_states_partial_update
       parameters:
       - in: path
         name: id
@@ -2323,7 +2338,7 @@ paths:
         description: A unique integer value identifying this state.
         required: true
       tags:
-      - location
+      - api
       requestBody:
         content:
           application/json:
@@ -2341,7 +2356,7 @@ paths:
                 $ref: '#/components/schemas/State'
           description: ''
     delete:
-      operationId: location_states_destroy
+      operationId: api_location_states_destroy
       parameters:
       - in: path
         name: id
@@ -2350,7 +2365,7 @@ paths:
         description: A unique integer value identifying this state.
         required: true
       tags:
-      - location
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -2360,7 +2375,7 @@ paths:
           description: No response body
   /api/schema/:
     get:
-      operationId: schema_retrieve
+      operationId: api_schema_retrieve
       description: |-
         OpenApi3 schema for this API. Format can be selected via content negotiation.
 
@@ -2479,7 +2494,7 @@ paths:
           - zh-hans
           - zh-hant
       tags:
-      - schema
+      - api
       security:
       - CadenceOIDC: []
       - basicAuth: []
@@ -3587,6 +3602,19 @@ components:
       - id
       - permission
       - role
+    ServerMeta:
+      type: object
+      properties:
+        version:
+          type: string
+        status:
+          type: string
+        reference:
+          type: string
+      required:
+      - reference
+      - status
+      - version
     SessionStatus:
       type: object
       properties:
